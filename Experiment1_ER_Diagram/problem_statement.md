@@ -45,28 +45,88 @@ Design a database for patient management, appointments, medical records, and bil
    - Why you chose the entities and relationships.
    - How you modeled prerequisites or billing.
 
-# ER Diagram Submission - Student Name
+# ER Diagram Submission - Eesha Ranka
 
 ## Scenario Chosen:
-University / Hospital (choose one)
+Hospital Database
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+
+![image](https://github.com/user-attachments/assets/0d0fdc4d-ca02-440d-b49b-d83e00ef81ef)
+
 
 ## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
-...
-
+```
+- Patient -  ID, Name, Phoneno, Gender, DOB, Address
+- Doctor - ID,Name,Phone,Specialist, Workschedule
+- Department - ID, Name,Head
+- Appointment - ID,Date,Time,Reason
+- MedicalRecord - ID,Testresults,treatment,medications
+- Billing - ID,Amt,Status,
+- Payment - ID, paidamt, Date,Method
+```
+  
 ## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
-...
+```
+1.Patient consults Doctor 
+Cardinality: Many-to-Many (M:N) 
+Participation: Total participation from Patient side, partial from Doctor side
+
+2. Doctor manages Department
+Cardinality: One-to-One (1:1) or One-to-Many (1:N)
+Participation: Partial participation from Doctor side
+
+3. Patient makes Appointment
+Cardinality: One-to-Many (1:N)
+Participation: Total participation from Appointment side
+
+4.Doctor enters MedicalRecord
+Cardinality: One-to-Many (1:N)
+Participation: Total participation from MedicalRecord side
+
+5.Appointment generates MedicalRecord
+Cardinality: One-to-One (1:1)
+Participation: Total participation from both Appointment and MedicalRecord sides
+
+6.Billing has Appointment
+Cardinality: One-to-One (1:1) or One-to-Many (1:N)
+Participation: Total participation from Billing side
+
+7.Payment PaidBy Billing
+Cardinality: One-to-One (1:1)
+Participation: Total participation from Payment side
+```
 
 ## Extension (Prerequisite / Billing):
-- Explain how you modeled prerequisites or billing.
+```
+Billing Modeling Explanation:
+Billing entity is associated with the Appointment (via "Has" relationship).
+Each appointment results in Billing, where:
+    Billing keeps track of the total Amount (Amt) and Status (whether paid or unpaid).
+Billing has a connection with Payment through "PaidBy" relationship:
+    Payment stores paid amount, payment date, and method (cash, card, etc.).
+Payment is optional until the patient pays.
+Constraints ensure:
+Every billing must be associated with exactly one payment record.
+Status is updated based on the payment completion (if full paid, status is "Paid"; else "Pending").
+
+```
 
 ## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
+```
+Entities like Patient, Doctor, Department, Appointment, MedicalRecord, Billing, and Payment were chosen because they represent the core operations of a hospital — handling patients, services, and payments.
+
+Relationships like Consult, Manages, Makes, Enters, Generates, Has, and PaidBy model the real-world interactions between patients, doctors, appointments, medical records, and billing/payment processes.
+
+Assumptions made:
+
+Every appointment generates a medical record.
+Billing is always linked to an appointment.
+Each billing must have exactly one payment.
+Departments must have a managing doctor.
+Patients must consult at least one doctor, but doctors may or may not have patients yet.
+```
+
 
 ## RESULT
+The ER diagram for the Hospital Management System was successfully created, identifying key entities, attributes, and relationships.
