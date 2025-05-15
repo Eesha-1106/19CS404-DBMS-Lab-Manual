@@ -38,9 +38,9 @@ DROP VIEW view_name;
 
 **Question 1**
 --
-```
-Write a SQL query to retrieve all columns from the CUSTOMERS table for customers whose Address as Delhi and age below 30
 
+Write a SQL query to retrieve all columns from the CUSTOMERS table for customers whose Address as Delhi and age below 30
+```
 Sample table: CUSTOMERS
 
 ID          NAME        AGE         ADDRESS     SALARY
@@ -69,9 +69,9 @@ where (address='Delhi' and age <30) order by ID asc;
 
 **Question 2**
 ---
-```
-From the following tables, write a SQL query to find all the orders issued by the salesman 'Paul Adam'. Return ord_no, purch_amt, ord_date, customer_id and salesman_id.
 
+From the following tables, write a SQL query to find all the orders issued by the salesman 'Paul Adam'. Return ord_no, purch_amt, ord_date, customer_id and salesman_id.
+```
 salesman table
 
 name             type
@@ -107,9 +107,9 @@ where name='Paul Adam'
 
 **Question 3**
 ---
-```
-Write a SQL query to retrieve all columns from the CUSTOMERS table for customers whose salary is LESS than $2500.
 
+Write a SQL query to retrieve all columns from the CUSTOMERS table for customers whose salary is LESS than $2500.
+```
 Sample table: CUSTOMERS
 
 ID          NAME        AGE         ADDRESS     SALARY
@@ -137,9 +137,9 @@ select * from CUSTOMERS where salary <2500;
 
 **Question 4**
 ---
-```
-Write a SQL query to retrieve all columns from the CUSTOMERS table for customers whose salary is greater than $1500.
 
+Write a SQL query to retrieve all columns from the CUSTOMERS table for customers whose salary is greater than $1500.
+```
 Sample table: CUSTOMERS
 
 ID          NAME        AGE         ADDRESS     SALARY
@@ -165,9 +165,8 @@ select * from CUSTOMERS where salary>1500;
 
 **Question 5**
 ---
-```
 Write a SQL query to retrieve all columns from the CUSTOMERS table for customers whose AGE is LESS than $30
-
+```
 Sample table: CUSTOMERS
 
 ID          NAME        AGE         ADDRESS     SALARY
@@ -192,9 +191,9 @@ select * from CUSTOMERS where age<30;
 
 **Question 6**
 ---
-```
-Write a SQL query to retrieve all columns from the CUSTOMERS table for customers whose salary is EQUAL TO $1500.
 
+Write a SQL query to retrieve all columns from the CUSTOMERS table for customers whose salary is EQUAL TO $1500.
+```
 Sample table: CUSTOMERS
 
 ID          NAME        AGE         ADDRESS     SALARY
@@ -219,9 +218,9 @@ select * from CUSTOMERS where salary=1500;
 
 **Question 7**
 ---
-```
-From the following tables, write a SQL query to find all the orders generated in New York city. Return ord_no, purch_amt, ord_date, customer_id and salesman_id.
 
+From the following tables, write a SQL query to find all the orders generated in New York city. Return ord_no, purch_amt, ord_date, customer_id and salesman_id.
+```
 SALESMAN TABLE
 
 name               type
@@ -257,11 +256,10 @@ where city ='New York'
 
 **Question 8**
 ---
-```
 Write a SQL query to List departments with names longer than the average length
 
 Departments Table (attributes: department_id, department_name)
-```
+
 ```sql
 select department_id , department_name 
 from Departments 
@@ -278,9 +276,8 @@ from Departments
 
 **Question 9**
 ---
-```
 From the following tables write a SQL query to find salespeople who had more than one customer. Return salesman_id and name.
-
+```
 salesman table
 
 name                 type
@@ -315,11 +312,11 @@ having count(c.customer_id)>1;
 
 **Question 10**
 ---
-```
+
 Write a SQL query to Retrieve the medications with dosages equal to the lowest dosage
 
 Table Name: Medications (attributes: medication_id, medication_name, dosage)
-```
+
 ```sql
 select * from Medications where dosage=(select min(dosage) from Medications);
 ```
